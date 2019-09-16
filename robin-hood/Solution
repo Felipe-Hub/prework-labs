@@ -1,0 +1,51 @@
+import math
+
+distance = []
+compar = []
+bulls = []
+dct = {}
+i = 0
+Q1 = 0
+Q2 = 0
+Q3 = 0
+Q4 = 0
+points = [(4, 5), (-0, 2), (4, 7), (1, -3), (3, -2), (4, 5),
+          (3, 2), (5, 7), (-5, 7), (2, 2), (-4, 5), (0, -2),
+          (-4, 7), (-1, 3), (-3, 2), (-4, -5), (-3, 2),
+          (5, 7), (5, 7), (2, 2), (9, 9), (-8, -9)]
+
+for i in range(len(points)):
+    if points[i] not in compar:
+        compar.append(points[i])
+        
+ans1 = len(points) - len(compar)
+
+for t in points:
+    if t[0] > 0 and t[1] > 0:
+        Q1 += 1
+    elif t[0] > 0 and t[1] < 0:
+        Q4 += 1
+    elif t[0] < 0 and t[1] > 0:
+        Q2 += 1
+    elif t[0] < 0 and t[1] < 0:
+        Q3 += 1
+
+axis = len(points) - (Q1 + Q2 + Q3 + Q4)   
+
+for i in range(len(compar)):
+    d = math.sqrt(compar[i][0]**2 + compar[i][1]**2)
+    distance.append(d)
+    dct[compar[i]] = distance[i]
+    i += 1
+
+for k, v in dct.items():
+    ans3 = min(distance)
+    if v == ans3:
+        bulls.append(k)
+    
+ans4 = 1 + 9**2 * 4
+
+print("Arrows in same coordinates:", ans1)
+print("Arrows in Q1 = {}.Arrows in Q2 = {}. Arrows in Q3 = {}. Arrows in Q4 = {}. Arrows on axis = {}.".format(Q1, Q2, Q3, Q4, axis))
+print("The closest arrows to the center are points {}, with a distance of {}".format(bulls, ans3))
+print("Number of arrows to cover the whole target =", ans4)
