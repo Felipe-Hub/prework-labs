@@ -1,0 +1,44 @@
+days = 0
+w_height = 0
+adv = 30
+slide = 20
+
+while w_height < 125:
+    days += 0.5
+    w_height += adv
+    if w_height < 125: 
+        w_height -= slide
+        days += 0.5
+
+print("Days =", int(days))
+
+##Bônus
+
+import numpy as np
+
+distance = 0
+days = 0
+i = -1
+slide = 20
+advance_cm = [30, 21, 33, 77, 44, 45, 23, 45, 12, 34, 55]
+
+while distance < 125:
+    days += 0.5
+    i += 1
+    distance += advance_cm[i]
+    if distance < 125: 
+        distance -= slide
+        days += 0.5
+
+daily = [x - slide for x in advance_cm]
+
+speed = sum(advance_cm)/len(advance_cm)
+        
+std = np.std(advance_cm)
+    
+print("Days =", int(days))
+print("Maximum displacement =", max(daily))
+print("Minimum displacement =", min(daily))
+print("Average Speed =", speed)
+
+print("Standard Deviation is =", std)
