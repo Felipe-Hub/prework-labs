@@ -1,0 +1,21 @@
+import numpy as np
+
+a = -1
+stops = []
+each_stop = 0
+pass_stop = []
+
+pass_in = [4, 3, 5, 7]
+pass_out = [1, 2, 3, 7]
+
+stops = [(pass_in[i], pass_out[i]) for i in range(len(pass_in))]
+
+for i in range(len(stops)):
+    each_stop += pass_in[i] - pass_out[i]
+    pass_stop.append(each_stop)
+    
+print("Bus stops =", len(stops))
+print("Number of passengers in each stop =", pass_stop)
+print("Maximum occupation is", max(pass_stop))
+print("The average occupation is", np.mean(pass_stop))
+print("The Standard Deviation is", np.std(pass_stop))
