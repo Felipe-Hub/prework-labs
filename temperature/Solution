@@ -1,7 +1,7 @@
 i = 0
 temp = [33,66,65,0,59,60,62,64,70,76,80,69,80,83,68,79,61,53,50,49,53,48,45,39]
 
-ans5 = [int((temp[i-1] + temp[i+1])/2) if temp[i] == 0 and i > 0 else temp[i] for i in range(len(temp[]))]
+ans5 = [int((temp[i-1] + temp[i+1])/2) if temp[i] == 0 and i > 0 else temp[i] for i in range(len(temp[:-1]))]
 ans1 = min(ans5)
 ans2 = max(ans5)
 ans3 = [t for t in temp if t >= 70]
