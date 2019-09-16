@@ -1,0 +1,16 @@
+i = 0
+temp = [33,66,65,0,59,60,62,64,70,76,80,69,80,83,68,79,61,53,50,49,53,48,45,39]
+
+ans5 = [int((temp[i-1] + temp[i+1])/2) if temp[i] == 0 and i > 0 else temp[i] for i in range(len(temp[]))]
+ans1 = min(ans5)
+ans2 = max(ans5)
+ans3 = [t for t in temp if t >= 70]
+ans4 = sum(temp)/len(temp)
+ans6 = [round((1.8 * C + 32), 2) for C in temp]
+
+print("The minimum temperature is", ans1)
+print("The maximum temperature is", ans2)
+print("The temperatures equal or above 70C are =", ans3)
+print("The average temperature is", round(ans4, 2))
+print("The estimated temperature for failed measures are =", ans5)
+print("The temperatures in F are =", ans6)
