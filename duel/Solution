@@ -1,0 +1,65 @@
+g = [10, 11, 13, 30, 22, 11, 10, 33, 22, 22]
+s = [23, 66, 12, 43, 12, 10, 44, 23, 12, 17]
+a = -1
+g_score = 0
+s_score = 0
+
+for i in g:
+    a += 1
+    if i > s[a]:
+        g_score += 1
+    else:
+        s_score += 1
+        
+if g_score > s_score:
+    print ("Gandalf wins.")
+elif g_score < s_score:
+    print ("Saruman wins.")
+else:
+    print("It's a tie.")
+
+## Bônus
+
+import numpy as np
+
+a = -1
+g_score = 0
+s_score = 0
+
+POWER = {
+    'Fireball': 50, 
+    'Lightning bolt': 40, 
+    'Magic arrow': 10, 
+    'Black Tentacles': 25, 
+    'Contagion': 45
+}
+
+g = ['Fireball', 'Lightning bolt', 'Lightning bolt', 'Magic arrow', 'Fireball', 
+    'Magic arrow', 'Lightning bolt', 'Fireball', 'Fireball', 'Fireball']
+
+s = ['Contagion', 'Contagion', 'Black Tentacles', 'Fireball', 'Black Tentacles', 
+    'Lightning bolt', 'Magic arrow', 'Contagion', 'Magic arrow', 'Magic arrow']
+
+power_g = [POWER[i] for i in g]
+power_s = [POWER[i] for i in s]
+
+for i in power_g:
+    a += 1
+    if i > power_s[a]:
+        g_score += 1
+    elif i < power_s[a]:
+        s_score += 1
+    if g_score == 3:
+        print("Gandalf wins!")
+        break
+    elif s_score == 3:
+        print("Saruman wins!")
+        break
+        
+std_g = np.std(power_g)
+std_s = np.std(power_s)
+
+print("Gandalf's power average is", sum(power_g)/len(power_g))
+print("Saruman's power average is", sum(power_s)/len(power_s))
+print("Gandalf's Standard Deviation is", std_g)
+print("Saruman's Standard Deviation is", std_s)
